@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>djs</title>
+    <style>
+        .nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            background-color: #F6F1F1;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        h2{
+            font: bold;
+
+            color: #19376D;
+        }
+        .bodyy{
+            background-image: url(https://images.pexels.com/photos/1054222/pexels-photo-1054222.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }   
+        
+    </style>
+</head>
+
+
+<body class="bodyy">
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a class="nav-link text-light" href="/home">Back</a>
+                    </li>
+                </ul>
+                <div class="navbar-brand mx-auto">
+                    <h4 style="color: white ; margin-left: 250px">Excel Data</h4>
+                </div>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <form action="/user/logout" method="get">
+                            <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+<table style="font-size: 16px;">
+    <tr>
+        <% heading.forEach(function (colHead) { %>
+            <th style="font-weight: bold; border: 2px solid black;"><%= colHead %></th>
+        <% }) %>
+    </tr>
+    <% for (let i = 1; i < data.length; i++) { %>
+        <tr>
+            <td style="font-weight: bold; border: 2px solid black;"><%= data[i][0] %></td>
+            <% for (let j = 1; j < data[i].length; j++) { %>
+                <% if(data[i][j]){ %>
+                    <td style="border: 2px solid black;"><%= data[i][j] %></td>
+                <% } else { %>
+                    <td style="border: 2px solid black;">No value</td>
+                <% } %>
+            <% } %>
+        </tr>
+    <% } %>
+</table>
+
+
+</body>
+</html>
